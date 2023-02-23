@@ -22,3 +22,8 @@ In the below slice of the DataFrame, we have dropped the 'id', 'contributor_id',
 | 412 broccoli casserole               |        40 | 2008-05-30 00:00:00 | [194.8, 20.0, 6.0, 32.0, 22.0, 36.0, 3.0]     |         6 |               9 |        5 |       6 |
 | millionaire pound cake               |       120 | 2008-02-12 00:00:00 | [878.3, 63.0, 326.0, 13.0, 20.0, 123.0, 39.0] |         7 |               7 |        5 |     326 |
 | 2000 meatloaf                        |        90 | 2012-03-06 00:00:00 | [267.0, 30.0, 12.0, 12.0, 29.0, 48.0, 2.0]    |        17 |              13 |        5 |      12 |
+
+### Univariate Analysis
+Below is a histogram of the middle 98th-percentile of the 'minutes' column. We chose to restrict the column values to the middle 98th-percentile, to exclue values where 'minutes' was 0 or where 'minutes' exceeded a reasonable range (the maximum value in the 'minutes' is over 1,000,000!). The values are binned into 50 groups to make the plot more viewer friendly. The histogram describes an expected trend: the majority of recipes are cooked under 2 hours, and few recipes exceed 5 hours of cooking time.
+
+<iframe src="assets/file-name.html" width=800 height=600 frameBorder=0></iframe>
