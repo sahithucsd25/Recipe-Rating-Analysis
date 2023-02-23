@@ -50,3 +50,19 @@ Moreover, observe the below histogram describing the 'rating' column. Notice, th
 The following scatterplot describes the relationship between the values in a given recipe's 'rating' and 'minutes' columns. The top left of the plot is densely populated, and patters out as we move to the bottom right. This marks a negative correlation between a ratings and minutes; as the time to cook increases, fewer recipes are likely to be rated highly.
 
 <iframe src="assets/rating-minutes-hist.html" width=800 height=600 frameBorder=0></iframe>
+
+### Interesting Aggregates
+For the sake of this portion, we cleaned the 'rating' column such that each rating was rounded to the first decimal place. Next, by grouping by rating and taking the median of the 'sugar' column, we generated the below DataFrame. We took the median as the distribution of the 'sugar' column is quite skewed. Below are the top 10 rows (containing recipes rated above 4). Notice that the top row has the highest value in the 'sugar' column.
+
+|   rating |   sugar |
+|---------:|--------:|
+|      5   |      24 |
+|      4.9 |      20 |
+|      4.8 |      21 |
+|      4.7 |      20 |
+|      4.6 |      21 |
+|      4.5 |      22 |
+|      4.4 |      21 |
+|      4.3 |      23 |
+|      4.2 |      23 |
+|      4.1 |      23 |
