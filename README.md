@@ -14,13 +14,13 @@ The following columns were cleaned: 'submitted', 'tags', 'nutrition', 'steps', a
 
 In the below slice of the DataFrame, we have dropped the 'id', 'contributor_id', and 'steps' as they have little relevance to our analysis. These are the top 5 rows of the DataFrame
 
-| name                                 |   minutes | submitted           | nutrition                                     |   n_steps |   n_ingredients |   rating |   sugar |
-|:-------------------------------------|----------:|:--------------------|:----------------------------------------------|----------:|----------------:|---------:|--------:|
-| 1 brownies in the world    best ever |        40 | 2008-10-27 00:00:00 | [138.4, 10.0, 50.0, 3.0, 3.0, 19.0, 6.0]      |        10 |               9 |        4 |      50 |
-| 1 in canada chocolate chip cookies   |        45 | 2011-04-11 00:00:00 | [595.1, 46.0, 211.0, 22.0, 13.0, 51.0, 26.0]  |        12 |              11 |        5 |     211 |
-| 412 broccoli casserole               |        40 | 2008-05-30 00:00:00 | [194.8, 20.0, 6.0, 32.0, 22.0, 36.0, 3.0]     |         6 |               9 |        5 |       6 |
-| millionaire pound cake               |       120 | 2008-02-12 00:00:00 | [878.3, 63.0, 326.0, 13.0, 20.0, 123.0, 39.0] |         7 |               7 |        5 |     326 |
-| 2000 meatloaf                        |        90 | 2012-03-06 00:00:00 | [267.0, 30.0, 12.0, 12.0, 29.0, 48.0, 2.0]    |        17 |              13 |        5 |      12 |
+| name                                 |   minutes | submitted   | nutrition                                     |   n_steps |   n_ingredients |   rating |   sugar |
+|:-------------------------------------|----------:|:------------|:----------------------------------------------|----------:|----------------:|---------:|--------:|
+| 1 brownies in the world    best ever |        40 | 2008-10-27  | [138.4, 10.0, 50.0, 3.0, 3.0, 19.0, 6.0]      |        10 |               9 |        4 |      50 |
+| 1 in canada chocolate chip cookies   |        45 | 2011-04-11  | [595.1, 46.0, 211.0, 22.0, 13.0, 51.0, 26.0]  |        12 |              11 |        5 |     211 |
+| 412 broccoli casserole               |        40 | 2008-05-30  | [194.8, 20.0, 6.0, 32.0, 22.0, 36.0, 3.0]     |         6 |               9 |        5 |       6 |
+| millionaire pound cake               |       120 | 2008-02-12  | [878.3, 63.0, 326.0, 13.0, 20.0, 123.0, 39.0] |         7 |               7 |        5 |     326 |
+| 2000 meatloaf                        |        90 | 2012-03-06  | [267.0, 30.0, 12.0, 12.0, 29.0, 48.0, 2.0]    |        17 |              13 |        5 |      12 |
 
 ### Univariate Analysis
 Observe the descriptive statistics of the 'minutes' column below.
@@ -41,3 +41,12 @@ Notice that the minimum value is 0 and the maximum value is over 1,000,000, both
 The values are binned into 50 groups to make the plot more viewer friendly. The histogram describes an expected trend: the majority of recipes are cooked under 2 hours, and few recipes exceed 5 hours of cooking time.
 
 <iframe src="assets/cooking-time-hist.html" width=800 height=600 frameBorder=0></iframe>
+
+Moreover, observe the below histogram describing the 'rating' column. Notice, the stark difference between the amount of highly-rated recipes versus otherwise. 
+
+<iframe src="assets/ratings-hist.html" width=800 height=600 frameBorder=0></iframe>
+
+### Bivariate Analysis
+The following scatterplot describes the relationship between the values in a given recipe's 'rating' and 'minutes' columns. The top left of the plot is densely populated, and patters out as we move to the bottom right. This marks a negative correlation between a ratings and minutes; as the time to cook increases, fewer recipes are likely to be rated highly.
+
+<iframe src="assets/rating-minutes-hist.html" width=800 height=600 frameBorder=0></iframe>
