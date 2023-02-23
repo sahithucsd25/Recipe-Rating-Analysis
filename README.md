@@ -26,4 +26,4 @@ In the below slice of the DataFrame, we have dropped the 'id', 'contributor_id',
 ### Univariate Analysis
 Below is a histogram of the middle 98th-percentile of the 'minutes' column. We chose to restrict the column values to the middle 98th-percentile, to exclue values where 'minutes' was 0 or where 'minutes' exceeded a reasonable range (the maximum value in the 'minutes' is over 1,000,000!). The values are binned into 50 groups to make the plot more viewer friendly. The histogram describes an expected trend: the majority of recipes are cooked under 2 hours, and few recipes exceed 5 hours of cooking time.
 
-<iframe src="assets/file-name.html" width=800 height=600 frameBorder=0></iframe>
+<iframe src="assets/cooking-time-hist.html" width=800 height=600 frameBorder=0></iframe>
