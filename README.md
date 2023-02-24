@@ -1,3 +1,4 @@
+# Big Sugar
 By Sahith Cherumandanda and Kavya Sriram
 
 ## Introduction
