@@ -1,6 +1,4 @@
-# Big Sugar
-## Recipe Rating Analysis
-Project for DSC 80 at UCSD by Sahith Cherumandanda and Kavya Sriram
+By Sahith Cherumandanda and Kavya Sriram
 
 ## Introduction
 This dataset contains information on recipes from 'food.com'. It contains over 80,000 recipes with data about a recipe's nutrition values (calories (#), total fat (PDV), sugar (PDV), sodium (PDV), protein (PDV), saturated fat (PDV), and carbohydrates (PDV)), the number of ingredients needed, and it's average rating (1.0-5.0), among other values. The average rating was calculated using a separate dataset containing reviews and ratings for different recipes. 
