@@ -22,9 +22,10 @@ In the below slice of the DataFrame, we have dropped the 'id', 'contributor_id',
 | millionaire pound cake               |       120 | 2008-02-12  | [878.3, 63.0, 326.0, 13.0, 20.0, 123.0, 39.0] |         7 |               7 |        5 |     326 |
 | 2000 meatloaf                        |        90 | 2012-03-06  | [267.0, 30.0, 12.0, 12.0, 29.0, 48.0, 2.0]    |        17 |              13 |        5 |      12 |
 
-### Univariate Analysis
+#### Univariate Analysis
 Observe the descriptive statistics of the 'minutes' column below.
 
+<center>
 |       |        minutes |
 |:------|---------------:|
 | count | 83782          |
@@ -35,6 +36,7 @@ Observe the descriptive statistics of the 'minutes' column below.
 | 50%   |    35          |
 | 75%   |    65          |
 | max   |     1.0512e+06 |
+<\center>
 
 Notice that the minimum value is 0 and the maximum value is over 1,000,000, both of which are unrealistic values. As such, in the below histogram plotting the frequency of values in the 'minutes' column, we chose to restrict the the column values to the middle 98th-percentile to exclude unreasonable values.
 
@@ -46,17 +48,18 @@ Moreover, observe the below histogram describing the 'rating' column. Notice, th
 
 <iframe src="assets/ratings-hist.html" width=800 height=600 frameBorder=0></iframe>
 
-### Bivariate Analysis
+#### Bivariate Analysis
 The following scatterplot describes the relationship between the values in a given recipe's 'rating' and 'minutes' columns. The top left of the plot is densely populated, and patters out as we move to the bottom right. This marks a negative correlation between a ratings and minutes; as the time to cook increases, fewer recipes are likely to be rated highly.
 
 <iframe src="assets/rating-minutes-hist.html" width=800 height=600 frameBorder=0></iframe>
 
-### Interesting Aggregates
+#### Interesting Aggregates
 For the sake of this portion, we cleaned the 'rating' column such that each rating was rounded to the first decimal place. Next, by grouping by rating and taking the median of the 'sugar' column, we generated the below DataFrame. We took the median as the distribution of the 'sugar' column is quite skewed. Below are the top 10 rows (containing recipes rated above 4). Notice that the top row has the highest value in the 'sugar' column.
 
+<center>
 |   rating |   sugar |
 |---------:|--------:|
-|      5   |      24 |
+|      5.0 |      24 |
 |      4.9 |      20 |
 |      4.8 |      21 |
 |      4.7 |      20 |
@@ -66,3 +69,21 @@ For the sake of this portion, we cleaned the 'rating' column such that each rati
 |      4.3 |      23 |
 |      4.2 |      23 |
 |      4.1 |      23 |
+<\center>
+
+## Assessment of Missingness
+#### NMAR Analysis
+We believe the missingess of the 'description' is NMAR (Not Missing At Random). We believe that the contributors, those who submitted recipes, simply chose not add a description for the recipe. This could be because a description would have been too long, or if the contributor believed the recipe needed no introduction as it was a common one.
+
+#### Missingness Dependency
+We chose to analyze the non-trivial missingness of the 'rating' column. We compared the 'n_ingredients' column depending on whether a rating was missing or not. The distribution is plotted below. The red hue represents the distribution of the 'n_ingredients' column when rating is missing, the blue hue represents the distribution of the 'n_ingredients' column when rating is not missing.
+
+<iframe src="assets/rating-missing-n-ingredients-hist.html" width=800 height=600 frameBorder=0></iframe>
+
+We conducted a permutation test to analyze the missingness of 'rating' based on 'n_ingredients' using the Kolmogorov-Smirnov statistic. The p-value was approximately 0.11. Thus, we conclude that the 'rating' column's missingness is likely not dependent on the 'n_ingredients' column. This has little effect on our question.
+
+Similarily, we compared the missingness of the 'rating' column with the year each recipe was submitted. The distribution is plotted below, and the color scheme follows that of the plot above.
+
+<iframe src="assets/rating-missing-year-hist.html" width=800 height=600 frameBorder=0></iframe>
+
+We conducted a permutation test to analyze the missingness of 'rating' based on 'n_ingredients' using the total variation distance statistic. The p-value was 0.0. Thus, we conclude that the 'rating' column's missingness is likely dependent on the year from the 'submitted' column. Again, this has little effect on our question.
