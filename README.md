@@ -25,7 +25,6 @@ In the below slice of the DataFrame, we have dropped the 'id', 'contributor_id',
 #### Univariate Analysis
 Observe the descriptive statistics of the 'minutes' column below.
 
-<center>
 |       |        minutes |
 |:------|---------------:|
 | count | 83782          |
@@ -36,7 +35,6 @@ Observe the descriptive statistics of the 'minutes' column below.
 | 50%   |    35          |
 | 75%   |    65          |
 | max   |     1.0512e+06 |
-<\center>
 
 Notice that the minimum value is 0 and the maximum value is over 1,000,000, both of which are unrealistic values. As such, in the below histogram plotting the frequency of values in the 'minutes' column, we chose to restrict the the column values to the middle 98th-percentile to exclude unreasonable values.
 
@@ -56,7 +54,6 @@ The following scatterplot describes the relationship between the values in a giv
 #### Interesting Aggregates
 For the sake of this portion, we cleaned the 'rating' column such that each rating was rounded to the first decimal place. Next, by grouping by rating and taking the median of the 'sugar' column, we generated the below DataFrame. We took the median as the distribution of the 'sugar' column is quite skewed. Below are the top 10 rows (containing recipes rated above 4). Notice that the top row has the highest value in the 'sugar' column.
 
-<center>
 |   rating |   sugar |
 |---------:|--------:|
 |      5.0 |      24 |
@@ -69,7 +66,6 @@ For the sake of this portion, we cleaned the 'rating' column such that each rati
 |      4.3 |      23 |
 |      4.2 |      23 |
 |      4.1 |      23 |
-<\center>
 
 ## Assessment of Missingness
 #### NMAR Analysis
