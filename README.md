@@ -5,7 +5,7 @@ Project for DSC 80 at UCSD by Sahith Cherumandanda and Kavya Sriram
 ## Introduction
 This dataset contains information on recipes from 'food.com'. It contains over 80,000 recipes with data about a recipe's nutrition values (calories (#), total fat (PDV), sugar (PDV), sodium (PDV), protein (PDV), saturated fat (PDV), and carbohydrates (PDV)), the number of ingredients needed, and it's average rating (1.0-5.0), among other values. The average rating was calculated using a separate dataset containing reviews and ratings for different recipes. 
 
-In analyzing this dataset, a natural question that arises is as follows: Do recipes with higher-than-average sugar content have higher-than-average ratings?
+In analyzing this dataset, a natural question that arises is as follows: Do recipes with higher-than-average sugar content have higher ratings?
 
 Answering the above question using this dataset has immediate consequences. If the answer is 'yes', when searching for reputable recipes going forward, bear in mind that highly rated recipes tend to be sweeter on average.
 
@@ -83,3 +83,15 @@ Similarily, we compared the missingness of the 'rating' column with the year eac
 <iframe src="assets/rating-missing-year-hist.html" width=800 height=600 frameBorder=0></iframe>
 
 We conducted a permutation test to analyze the missingness of 'rating' based on 'n_ingredients' using the total variation distance statistic. The p-value was 0.0. Thus, we conclude that the 'rating' column's missingness is likely dependent on the year from the 'submitted' column. Again, this has little effect on our question.
+
+## Hypothesis Testing
+Question (Restated): Do recipes with higher-than-average sugar content have higher ratings?
+
+**Null Hypothesis**: Recipes with higher-than-average sugar content have the same average rating as the average rating of all recipes in the dataset.
+**Alternative Hypothesis**: Recipes with higher-than-average sugar content have a higher average rating than the average rating of all recipes in the dataset.
+
+We chose the mean rating as our test statistic and a 0.05 significance level. Moreover, we chose to restrict the dataset to the bottom 97th percentile of values in the 'sugar' column to exclude unreasonably high values. After repeatedly sampling portions of the dataset, calculating the average rating of the sample, and comparing our observed statistic to the simulated statistics, our resulting p-value was 0.01. Below is a plot of the simulated and observed test statistics (red bar).
+
+<iframe src="assets/test-stat-distribution.html" width=800 height=600 frameBorder=0></iframe>
+
+Thus, we reject the null hypothesis and conclude that recipes with higher-than-average sugar content have a higher average rating than the average rating of all recipes in the dataset.
